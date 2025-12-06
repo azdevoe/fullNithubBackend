@@ -1,6 +1,17 @@
 import { Sequelize } from "sequelize"
-export const sequelize = new Sequelize('fifthClass','postgres','Devbodegram@gmail8',{
-    host:'localhost',
-    dialect:'postgres',
-    logging: true
-})
+import dotenv from 'dotenv'
+
+// Load environment variables from .env file
+dotenv.config()
+
+// Initialize Sequelize connection
+export const sequelize = new Sequelize(
+     process.env.DATABASE_NAME!, 
+      process.env.DATABASE_USER!, 
+  process.env.DATABASE_PASSWORD, 
+  {
+    host: process.env.DATABASE_HOST,
+    dialect: 'postgres',
+    logging: true 
+  }
+)

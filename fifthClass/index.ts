@@ -110,7 +110,7 @@ app.post("/auth/login",async (req:Request,res:Response)=>{
 
 app.listen(port,async ()=>{
     await sequelize.authenticate()
-    await User.sync()
+    //await User.sync()
     console.log(`database connected successfully`);
     
     console.log(`listening at ${port}`);
